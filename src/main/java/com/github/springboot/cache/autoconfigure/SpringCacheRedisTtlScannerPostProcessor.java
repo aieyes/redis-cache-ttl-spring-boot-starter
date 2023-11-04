@@ -25,13 +25,13 @@ import java.util.stream.Stream;
 public class SpringCacheRedisTtlScannerPostProcessor extends InstantiationAwareBeanAfterPostProcessorAdapter {
 
     private static final List<Class<? extends Annotation>> CACHE_OPERATION_ANNOTATIONS = new ArrayList<>(4);
-    private SpringCacheRedisTtlProperties springCacheRedisTtlProperties;
+    private final SpringCacheRedisTtlProperties springCacheRedisTtlProperties;
 
     public SpringCacheRedisTtlScannerPostProcessor(SpringCacheRedisTtlProperties springCacheRedisTtlProperties) {
         this.springCacheRedisTtlProperties = springCacheRedisTtlProperties;
     }
 
-    private ReflectionUtils.MethodFilter ttlFilter = method -> {
+    private final ReflectionUtils.MethodFilter ttlFilter = method -> {
         Set<Class<? extends Annotation>> methodAnn = Stream.of(method.getAnnotations())
                 .map(Annotation::annotationType)
                 .collect(Collectors.toSet());

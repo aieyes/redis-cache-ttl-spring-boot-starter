@@ -28,8 +28,8 @@ import java.util.Map;
  * @author WangChen
  * @since 2021-01-19 11:36
  **/
-@Configuration
-@EnableCaching
+//@Configuration
+//@EnableCaching
 public class RedisCacheManagerCustomConfig {
 
     private StringRedisSerializer stringRedisSerializer = new StringRedisSerializer();

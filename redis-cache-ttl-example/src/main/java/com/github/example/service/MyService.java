@@ -17,7 +17,7 @@ public class MyService {
         return new User("user");
     }
 
-    @Ttl("100s")
+//    @Ttl("100s")
     @Cacheable(cacheNames = "org", key = "#id")
     public Org getOrg(String id){
         return new Org("org");
